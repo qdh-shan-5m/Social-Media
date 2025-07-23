@@ -1,380 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QDH SHAN 5M</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      color: white;
-      overflow-x: hidden;
-      text-align: center;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.imgur.com/tpf2yJJ.jpg') no-repeat center center fixed;
-      background-size: cover;
-      filter: blur(8px);
-      z-index: -3;
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: -2;
-    }
-    .wrapper {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 60px 20px 20px;
-    }
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.2em; /* desktop size */
-      margin-bottom: 40px;
-      padding: 20px 50px;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
-      display: inline-block;
-      white-space: pre-wrap;
-    }
-    .letter {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 6s ease-in-out infinite;
-      background-image: linear-gradient(90deg, #00ffff, #ff00ff, #00bfff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 10px #0ff, 0 0 20px #ff00ff, 0 0 40px #00bfff;
-    }
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      50% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(-20px); }
-    }
-    .button-container, .extra-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 30px; /* Uniform vertical spacing between buttons */
-      align-items: center;
-      width: 350px;
-      margin: 0 auto;
-    }
-    /* Removed extra margin-bottom on TikTok page button to keep spacing uniform */
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QDH SHAN 5M</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%;font-family:'Poppins',sans-serif;color:white;overflow-x:hidden;text-align:center}
+  body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background:url('https://i.imgur.com/tpf2yJJ.jpg') no-repeat center center fixed;background-size:cover;filter:blur(8px);z-index:-3}
+  body::after{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:-2}
+  .wrapper{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;padding:60px 20px 20px}
+  h1{font-family:'Orbitron',sans-serif;font-size:2.2em;margin-bottom:40px;padding:20px 50px;border-radius:15px;background:rgba(255,255,255,0.1);box-shadow:0 0 30px rgba(0,255,255,0.4);display:inline-block;white-space:pre-wrap}
+  .letter{display:inline-block;opacity:0;transform:translateY(30px);animation:fadeInUp 6s ease-in-out infinite;background-image:linear-gradient(90deg,#00ffff,#ff00ff,#00bfff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 10px #0ff,0 0 20px #ff00ff,0 0 40px #00bfff}
+  @keyframes fadeInUp{0%{opacity:0;transform:translateY(30px)}50%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-20px)}}
+  .button-container{display:flex;flex-direction:column;gap:30px;align-items:center;width:350px;margin:0 auto}
+  .social-button{font-family:'Orbitron',sans-serif;text-decoration:none;background:rgba(255,255,255,0.08);padding:15px 25px;font-size:1.3em;border-radius:15px;border:2px solid;color:#00ffff;border-color:#00ffff;box-shadow:0 0 20px #00ffff50;background:linear-gradient(90deg,#00ffff 25%,#ff00ff 50%,#00bfff 75%);background-size:200% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 3s linear infinite;width:100%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .social-button img{width:26px;height:26px;margin-right:12px}
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  .footer{margin-top:60px;padding:20px;font-size:.9em;color:#ccc;font-style:italic}
+  .footer a{color:#00ffff;text-decoration:underline}
 
-    .social-button, .extra-button {
-      text-decoration: none;
-      font-family: 'Orbitron', sans-serif;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 15px 25px;
-      font-size: 1.3em;
-      border-radius: 15px;
-      border: 2px solid;
-      backdrop-filter: blur(4px);
-      transition: all 0.4s ease;
-      width: 100%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .social-button {
-      color: #00ffff;
-      border-color: #00ffff;
-      box-shadow: 0 0 20px #00ffff50;
-      background: linear-gradient(90deg, #00ffff 25%, #ff00ff 50%, #00bfff 75%);
-      background-size: 200% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shimmer 3s linear infinite;
-    }
-    .extra-button {
-      color: #ff6f91;
-      border-color: #ff6f91;
-      background: linear-gradient(90deg, #ff6f91 25%, #ff9a9e 50%, #fbc7c7 75%);
-      background-size: 200% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shimmer 3s linear infinite;
-    }
-    .social-button img {
-      width: 26px;
-      height: 26px;
-      margin-right: 12px;
-    }
-    .extra-buttons {
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.5s ease;
-    }
-    .extra-buttons.show {
-      opacity: 1;
-      max-height: 500px;
-    }
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
+  /* Modal common styles */
+  .modal-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.75);display:none;justify-content:center;align-items:center;z-index:9999}
+  .modal-overlay.show{display:flex}
+  .modal{background:#111;border-radius:15px;width:90%;max-width:400px;padding:40px 20px;box-shadow:0 0 40px #00ffffaa;text-align:center;position:relative;animation:scaleIn .4s ease-out}
+  @keyframes scaleIn{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
+  .modal h2{font-family:'Orbitron',sans-serif;color:#00ffff;margin-bottom:20px;font-size:1.4em}
+  .modal .close-btn{position:absolute;top:10px;right:10px;font-size:1.8em;background:transparent;border:none;color:#00ffff;cursor:pointer}
+  .modal-buttons,.form-section{display:flex;flex-direction:column;align-items:center;gap:20px}
+  .modal-buttons button,.form-section button{font-family:'Orbitron',sans-serif;padding:12px 30px;font-size:1.2em;border-radius:12px;border:2px solid #00ffff;background:transparent;color:#00ffff;cursor:pointer;transition:.3s;text-transform:uppercase;width:180px}
+  .modal-buttons button:hover,.form-section button:hover{background:#00ffff;color:#111;box-shadow:0 0 20px #00ffff}
+  .form-section input{width:90%;padding:12px;border-radius:10px;border:2px solid #00ffff;background:#222;color:#fff;font-size:1em;text-align:center}
+  .info-text{color:#ccc;font-size:0.9em;margin-top:10px}
 
-    /* Footer styling */
-    .footer {
-      margin-top: 60px;
-      width: 100%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      font-size: 0.9em;
-      color: #ccc;
-      font-style: italic;
-      user-select: none;
-    }
-    .footer p {
-      margin: 0;
-    }
-    .footer a {
-      color: #00ffff;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    /* Modal styles */
-    #popup-modal, #ff-modal {
-      display: none;
-      position: fixed;
-      z-index: 10000;
-      left: 0; top: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(4px);
-      justify-content: center;
-      align-items: center;
-    }
-    #popup-content {
-      background: #111;
-      padding: 25px 30px;
-      border-radius: 15px;
-      text-align: center;
-      width: 320px;
-      box-shadow: 0 0 25px #00ffff;
-      position: relative;
-    }
-    #popup-content input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      font-family: 'Poppins', sans-serif;
-      margin-bottom: 20px;
-      font-size: 1em;
-    }
-    #popup-content button {
-      padding: 10px 20px;
-      font-size: 1.1em;
-      border-radius: 10px;
-      border: none;
-      background: linear-gradient(90deg, #00ffff, #ff00ff, #00bfff);
-      background-size: 200% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      cursor: pointer;
-      box-shadow: 0 0 15px #00ffff;
-      transition: background-position 0.5s ease;
-    }
-    #popup-content button:hover {
-      background-position: 100% 0;
-    }
-    #popup-content #close-popup,
-    #popup-content #close-ff-popup {
-      position: absolute;
-      top: 10px; right: 15px;
-      font-size: 1.4em;
-      cursor: pointer;
-      color: #aaa;
-      user-select: none;
-    }
-    #popup-content #close-popup:hover,
-    #popup-content #close-ff-popup:hover {
-      color: #fff;
-    }
-
-    /* Responsive Mobile Styles */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.2em; /* mobile size */
-        padding: 15px 20px;
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-      }
-
-      .button-container, .extra-buttons {
-        width: 90vw;
-        gap: 20px;
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .social-button, .extra-button {
-        width: 100%; /* Full width on mobile */
-        font-size: 1.1em;
-        padding: 12px 15px;
-      }
-
-      /* Reduce modal width */
-      #popup-content {
-        width: 90vw;
-        padding: 20px 20px;
-      }
-
-      #popup-content input {
-        font-size: 0.9em;
-        padding: 10px;
-      }
-
-      #popup-content button {
-        font-size: 1em;
-        padding: 10px;
-      }
-    }
-  </style>
+  /* Notification Modal */
+  #notification-modal .modal {
+    max-width: 320px;
+    padding: 25px 20px;
+  }
+  #notification-modal h2 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+  #notification-modal p {
+    color: #00ff99;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+</style>
 </head>
 <body>
-
-  <div class="wrapper">
-    <h1 id="animated-title"></h1>
-
-    <div class="button-container">
-      <a class="social-button" href="https://chat.whatsapp.com/Llb8kfGKy2512t0QrvfDh3?mode=ac_t" target="_blank"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp"/> WhatsApp Group</a>
-      <a class="social-button" href="https://youtube.com/@qdh_shan_5m" target="_blank"><img src="https://img.icons8.com/color/48/000000/youtube-play.png" alt="YouTube"/> YouTube Channel</a>
-      <a class="social-button" href="https://www.tiktok.com/@qdh_shan_5m" target="_blank"><img src="https://img.icons8.com/fluency/48/000000/tiktok.png" alt="TikTok"/> TikTok Page</a>
-      <a id="bot-button" class="social-button" href="javascript:void(0)"><img src="https://img.icons8.com/ios-filled/48/00ffff/robot-2.png" alt="Bot"/> Like & Views Bot</a>
-    </div>
-
-    <div id="extra-buttons" class="extra-buttons">
-      <a id="tiktok-views-bot" class="extra-button" href="javascript:void(0)">TikTok Views Bot</a>
-      <a id="ff-like-bot" class="extra-button" href="javascript:void(0)">Free Fire Profile Like Bot</a>
-    </div>
-
-    <div class="footer">
-      <p>Owner - Gawesh Theshan |© 2025 All rights reserved |  Whatsapp +94 74 036 3594 | Email: <a href="mailto:gaweshtheshan647@gmail.com">gaweshtheshan647@gmail.com</a></p>
-    </div>
+<div class="wrapper">
+  <h1 id="animated-title"></h1>
+  <div class="button-container">
+    <a class="social-button" href="https://chat.whatsapp.com/Llb8kfGKy2512t0QrvfDh3" target="_blank">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png"/> WhatsApp Group
+    </a>
+    <a class="social-button" href="https://youtube.com/@qdh_shan_5m" target="_blank">
+      <img src="https://img.icons8.com/color/48/000000/youtube-play.png"/> YouTube Channel
+    </a>
+    <a class="social-button" href="https://www.tiktok.com/@qdh_shan_5m" target="_blank">
+      <img src="https://img.icons8.com/fluency/48/000000/tiktok.png"/> TikTok Page
+    </a>
+    <a id="giveaway-btn" class="social-button" href="javascript:void(0)">
+      <img src="https://img.icons8.com/fluency/48/000000/gift.png"/> Giveaway
+    </a>
+    <a id="bot-btn" class="social-button" href="javascript:void(0)">
+      <img src="https://img.icons8.com/ios-filled/48/00ffff/robot-2.png"/> Like & Views Bot
+    </a>
   </div>
 
-  <!-- TikTok Modal -->
-  <div id="popup-modal">
-    <div id="popup-content">
-      <div id="close-popup" title="Close">&times;</div>
-      <h2>TikTok Views Bot</h2>
-      <input type="text" id="tiktok-link-input" placeholder="Enter TikTok video link (max 1000 views)" />
-      <button id="submit-btn">Submit</button>
+  <div class="footer">
+    <p>Owner - Gawesh Theshan | © 2025 | WhatsApp +94 74 036 3594 | Email: 
+      <a href="mailto:gaweshtheshan647@gmail.com">gaweshtheshan647@gmail.com</a>
+    </p>
+  </div>
+</div>
+
+<!-- Giveaway Modal -->
+<div id="giveaway-modal" class="modal-overlay">
+  <div class="modal">
+    <button class="close-btn">&times;</button>
+    <div id="giveaway-content">
+      <h2>Giveaway Options</h2>
+      <div class="modal-buttons">
+        <button id="apply-btn">Apply</button>
+        <button id="winner-btn">Winner</button>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- Free Fire Modal -->
-  <div id="ff-modal">
-    <div id="popup-content">
-      <div id="close-ff-popup" title="Close">&times;</div>
-      <h2>Free Fire Like Bot</h2>
-      <input type="number" id="ff-like-input" placeholder="Free Fire Like (only numbers)" />
-      <button id="ff-submit-btn">Submit</button>
+<!-- Bot Modal -->
+<div id="bot-modal" class="modal-overlay">
+  <div class="modal">
+    <button class="close-btn">&times;</button>
+    <div id="bot-content">
+      <h2>Select Bot</h2>
+      <div class="modal-buttons">
+        <button id="tiktok-bot-btn">TikTok Views Bot</button>
+        <button id="ff-bot-btn">Free Fire Like Bot</button>
+      </div>
     </div>
   </div>
+</div>
 
-  <script>
-    const text = "QDH SHAN 5M\nSOCIAL MEDIA LINK";
-    const container = document.getElementById('animated-title');
-    for(let i=0; i<text.length; i++){
-      const char = text[i];
-      const span = document.createElement('span');
-      span.innerHTML = char === "\n" ? "<br/>" : char === " " ? "&nbsp;" : char;
-      if(char !== "\n" && char !== " ") {
-        span.classList.add('letter');
-        span.style.animationDelay = (i * 0.3) + 's';
+<!-- Notification Modal -->
+<div id="notification-modal" class="modal-overlay">
+  <div class="modal">
+    <button class="close-btn" id="notif-close-btn">&times;</button>
+    <h2 id="notif-title"></h2>
+    <p id="notif-message"></p>
+  </div>
+</div>
+
+<script>
+// Animated Title
+const text="QDH SHAN 5M\nSOCIAL MEDIA LINK";
+const container=document.getElementById('animated-title');
+for(let i=0;i<text.length;i++){
+  const char=text[i];
+  const span=document.createElement('span');
+  span.innerHTML=char==="\n"?"<br/>":char===" "?"&nbsp;":char;
+  if(char!=="\n"&&char!==" "){span.classList.add('letter');span.style.animationDelay=(i*0.3)+'s';}
+  container.appendChild(span);
+}
+
+// Giveaway Modal Logic
+const giveawayBtn=document.getElementById('giveaway-btn');
+const giveawayModal=document.getElementById('giveaway-modal');
+const closeGiveaway=giveawayModal.querySelector('.close-btn');
+const giveawayContent=document.getElementById('giveaway-content');
+
+giveawayBtn.addEventListener('click',()=>giveawayModal.classList.add('show'));
+closeGiveaway.addEventListener('click',()=>giveawayModal.classList.remove('show'));
+giveawayModal.addEventListener('click',e=>{if(e.target===giveawayModal)giveawayModal.classList.remove('show');});
+
+const phrases=["QDH SHAN ON TOP","NICE WORK","SHAN ALWAYS TOP","THANK YOU","VIRAL SHAN","SHAN TOP AGAIN"];
+
+document.getElementById('apply-btn').addEventListener('click', () => {
+  const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+  giveawayContent.innerHTML = `
+    <h2>${randomPhrase}</h2>
+    <p class="info-text">THIS WORD COMMENT TO PIN VIDEOS</p>
+    <div class="modal-buttons">
+      <button id="next-btn">Next</button>
+    </div>
+  `;
+  document.getElementById('next-btn').addEventListener('click', () => {
+    giveawayContent.innerHTML = `
+      <h2>Enter Details</h2>
+      <div class="form-section">
+        <input type="text" id="tiktok-name" placeholder="Enter your TikTok Name"/>
+        <input type="text" id="ff-id" placeholder="Enter your Free Fire ID"/>
+        <div class="modal-buttons">
+          <button id="submit-btn">Submit</button>
+        </div>
+      </div>
+    `;
+    document.getElementById('submit-btn').addEventListener('click', () => {
+      const name = document.getElementById('tiktok-name').value.trim();
+      const ffid = document.getElementById('ff-id').value.trim();
+      if (name && ffid) {
+        fetch("https://discord.com/api/webhooks/1397490571295064105/HqC7svG4J1fW-xukGr0Q5lMyy-JTm4Dy3VS_fe-Y06aLe3fjuazQu1SPLcCAWUIhXQMj", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content: `📌 Giveaway Application\nTikTok Name: ${name}\nFree Fire ID: ${ffid}` })
+        }).then(() => {
+          giveawayContent.innerHTML = `<h2 style="color:#00ff99;">Submitted Successfully!</h2>`;
+          setTimeout(() => giveawayModal.classList.remove('show'), 2000);
+        }).catch(() => {
+          alert("Error sending submission. Please try again.");
+        });
+      } else {
+        alert("Please fill both fields!");
       }
-      container.appendChild(span);
+    });
+  });
+});
+
+document.getElementById('winner-btn').addEventListener('click',()=>{
+  giveawayContent.innerHTML=`<h2>Winner Name Updating...</h2><p class="info-text">Giveaway Not End</p>`;
+});
+
+// Bot Modal Logic
+const botBtn=document.getElementById('bot-btn');
+const botModal=document.getElementById('bot-modal');
+const closeBot=botModal.querySelector('.close-btn');
+
+botBtn.addEventListener('click',()=>botModal.classList.add('show'));
+closeBot.addEventListener('click',()=>botModal.classList.remove('show'));
+botModal.addEventListener('click',e=>{if(e.target===botModal)botModal.classList.remove('show');});
+
+// Notification Modal Logic
+const notificationModal=document.getElementById('notification-modal');
+const notifTitle=document.getElementById('notif-title');
+const notifMessage=document.getElementById('notif-message');
+const notifCloseBtn=document.getElementById('notif-close-btn');
+
+function showNotification(title,message){
+  notifTitle.textContent=title;
+  notifMessage.textContent=message;
+  notificationModal.classList.add('show');
+}
+
+notifCloseBtn.addEventListener('click',()=>{
+  notificationModal.classList.remove('show');
+});
+notificationModal.addEventListener('click',e=>{
+  if(e.target===notificationModal) notificationModal.classList.remove('show');
+});
+
+// TikTok Views Bot with 24-hour cooldown and notification modal
+document.getElementById('tiktok-bot-btn').addEventListener('click',()=>{
+  const botContent=document.getElementById('bot-content');
+  botContent.innerHTML=`
+    <h2>TikTok Views Bot</h2>
+    <div class="form-section">
+      <input type="text" id="video-link" placeholder="Enter your TikTok Video Link"/>
+      <button id="submit-tiktok-btn">Submit</button>
+      <p class="info-text">We will start increasing views shortly.</p>
+    </div>
+  `;
+
+  document.getElementById('submit-tiktok-btn').addEventListener('click',()=>{
+    const videoLink=document.getElementById('video-link').value.trim();
+    if(!videoLink){
+      showNotification("Error","Please enter your TikTok video link!");
+      return;
     }
 
-    document.getElementById('bot-button').onclick = () => {
-      document.getElementById('bot-button').style.display = "none";
-      document.getElementById('extra-buttons').classList.add('show');
-    };
+    fetch('https://api.ipify.org?format=json')
+      .then(response=>response.json())
+      .then(data=>{
+        const userIP=data.ip;
+        const currentTime=Date.now();
+        const cooldownKey=`tiktok_request_${userIP}`;
+        const lastRequestTime=localStorage.getItem(cooldownKey);
 
-    const popupModal = document.getElementById('popup-modal');
-    const ffModal = document.getElementById('ff-modal');
+        if(lastRequestTime && (currentTime - parseInt(lastRequestTime) < 86400000)){
+          showNotification("Cooldown Active","⚠ You are using the free version. Try again after 24 hours.");
+          return;
+        }
 
-    document.getElementById('tiktok-views-bot').onclick = () => {
-      popupModal.style.display = "flex";
-      document.getElementById('tiktok-link-input').value = "";
-    };
-    document.getElementById('ff-like-bot').onclick = () => {
-      ffModal.style.display = "flex";
-      document.getElementById('ff-like-input').value = "";
-    };
-    document.getElementById('close-popup').onclick = () => popupModal.style.display = "none";
-    document.getElementById('close-ff-popup').onclick = () => ffModal.style.display = "none";
+        localStorage.setItem(cooldownKey,currentTime);
 
-    window.onclick = (e) => {
-      if (e.target === popupModal) popupModal.style.display = "none";
-      if (e.target === ffModal) ffModal.style.display = "none";
-    };
+        const timestamp=new Date().toLocaleString();
+        const apiURL=`https://www.tikwm.com/api/?url=${encodeURIComponent(videoLink)}`;
 
-    document.getElementById('submit-btn').onclick = async () => {
-      const link = document.getElementById('tiktok-link-input').value.trim();
-      if (!link) return alert("Please enter TikTok link.");
-      const payload = {
-        username: "TikTok Views Bot",
-        embeds: [{
-          title: "New TikTok Views Bot Request",
-          color: 5814783,
-          fields: [{ name: "TikTok Link", value: link }],
-          timestamp: new Date().toISOString()
-        }]
-      };
-      fetch("https://discord.com/api/webhooks/1396832361576136787/RZn_FQtysHc-XWM-uLJ_Ii8aoBBwfJdiEb1Buz5e_qkCZIEprqWWeutPWTZ5PbIWgwel", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      }).then(res => {
-        alert(res.ok ? "Request submitted!" : "Submission failed.");
-        if (res.ok) popupModal.style.display = "none";
+        fetch(apiURL)
+          .then(res=>res.json())
+          .then(videoData=>{
+            let viewCount="Unknown";
+            if(videoData && videoData.data && videoData.data.play_count){
+              viewCount=videoData.data.play_count.toLocaleString();
+            }
+
+            const webhookURL="https://discord.com/api/webhooks/1396832361576136787/RZn_FQtysHc-XWM-uLJ_Ii8aoBBwfJdiEb1Buz5e_qkCZIEprqWWeutPWTZ5PbIWgwel";
+            fetch(webhookURL,{
+              method:"POST",
+              headers:{"Content-Type":"application/json"},
+              body:JSON.stringify({
+                content:`📌 **TikTok Views Bot Request**\n🔗 Video: ${videoLink}\n👀 Current Views: ${viewCount}\n🌐 IP: ${userIP}\n🕒 Time: ${timestamp}`
+              })
+            }).then(()=>{
+              showNotification("Success","Request Sent Successfully!");
+              setTimeout(()=>botModal.classList.remove('show'),2000);
+            }).catch(()=>{
+              showNotification("Error","Error sending request. Try again.");
+            });
+          })
+          .catch(()=>{
+            showNotification("Error","Error fetching TikTok data.");
+          });
       });
-    };
+  });
+});
 
-    document.getElementById('ff-submit-btn').onclick = async () => {
-      const num = document.getElementById('ff-like-input').value.trim();
-      if (!num || isNaN(num)) return alert("Please enter a valid number.");
-      const content = `!like ${num}`;
-      fetch("https://discord.com/api/webhooks/1396835674895945761/58ZybgVOrVl-WhHXF784L9Vj73972Q_GZWiuZEwh8aWlfFpp752oUJXfekQWGEqrCpeu", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: "Free Fire Like Bot", content })
-      }).then(res => {
-        alert(res.ok ? "Like request sent!" : "Error sending like.");
-        if (res.ok) ffModal.style.display = "none";
-      });
-    };
-  </script>
+// Free Fire Like Bot with new webhook and input placeholder "Enter your Free Fire ID"
+document.getElementById('ff-bot-btn').addEventListener('click',()=>{
+  const botContent=document.getElementById('bot-content');
+  botContent.innerHTML=`
+    <h2>Free Fire Like Bot</h2>
+    <div class="form-section">
+      <input type="text" id="ff-id-input" placeholder="Enter your Free Fire ID" autocomplete="off" />
+      <button id="submit-ff-btn">Submit</button>
+      <p class="info-text">We will process your request shortly.</p>
+    </div>
+  `;
 
+  document.getElementById('submit-ff-btn').addEventListener('click',()=>{
+    const ffId=document.getElementById('ff-id-input').value.trim();
+    if(!ffId){
+      showNotification("Error","Please enter your Free Fire ID!");
+      return;
+    }
+
+    const webhookURL="https://discord.com/api/webhooks/1396832661984510023/PC4HNUw507Gn0WKVocu7slWeMlOAZtoGtIkfOoQ_brJn-kebzcqbXjFoMvbEFryN6KB8";
+
+    fetch(webhookURL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        content:`✅ **Free Fire Like Request**\nFree Fire ID: ${ffId}`
+      })
+    }).then(()=>{
+      showNotification("Success","Request Sent Successfully!");
+      setTimeout(()=>botModal.classList.remove('show'),2000);
+    }).catch(()=>{
+      showNotification("Error","Error sending request.");
+    });
+  });
+});
+</script>
 </body>
 </html>
