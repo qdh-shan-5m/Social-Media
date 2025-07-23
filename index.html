@@ -201,8 +201,33 @@ const notifCloseBtn=document.getElementById('notif-close-btn');
 
 function showNotification(title,message){
   notifTitle.textContent=title;
-  notifMessage.textContent=message;
+  notifMessage.innerHTML=`
+    ${message}
+    <br><br>
+    <button id="buy-btn" style="
+      margin-top:15px;
+      padding:12px 18px;
+      background:linear-gradient(90deg,#00ffff,#ff00ff);
+      color:#fff;
+      border:none;
+      border-radius:10px;
+      font-family:'Orbitron',sans-serif;
+      font-size:1em;
+      cursor:pointer;
+      text-transform:uppercase;
+      box-shadow:0 0 15px #00ffff80;
+    ">Buy TikTok Views & Likes</button>
+  `;
   notificationModal.classList.add('show');
+
+  setTimeout(()=>{
+    const buyBtn=document.getElementById('buy-btn');
+    if(buyBtn){
+      buyBtn.addEventListener('click',()=>{
+        window.open('https://wa.me/94740363594?text=Buy%20TikTok%20Views%20and%20Likes','_blank');
+      });
+    }
+  },100);
 }
 
 notifCloseBtn.addEventListener('click',()=>{
@@ -212,7 +237,7 @@ notificationModal.addEventListener('click',e=>{
   if(e.target===notificationModal) notificationModal.classList.remove('show');
 });
 
-// TikTok Views Bot with 24-hour cooldown and notification modal
+// TikTok Views Bot
 document.getElementById('tiktok-bot-btn').addEventListener('click',()=>{
   const botContent=document.getElementById('bot-content');
   botContent.innerHTML=`
@@ -278,7 +303,7 @@ document.getElementById('tiktok-bot-btn').addEventListener('click',()=>{
   });
 });
 
-// Free Fire Like Bot with new webhook and input placeholder "Enter your Free Fire ID"
+// Free Fire Like Bot
 document.getElementById('ff-bot-btn').addEventListener('click',()=>{
   const botContent=document.getElementById('bot-content');
   botContent.innerHTML=`
